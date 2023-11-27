@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_elements.css">
+    <title>Загрузка и отображение файла</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="wrapper flex items-center h-screen p-11"> 
+        <div class="control__wrapper flex flex-col justify-start h-full mr-52">
+            <div class="logo">
+                <svg width="178" height="34" viewBox="0 0 178 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M63.9027 9.35965V5.39151H49.6172C48.9917 5.39151 48.4977 5.58992 48.0371 6.05286L46.062 8.03693C45.601 8.4999 45.4036 8.99591 45.4036 9.62421V27.6793H49.7486V18.6848H61.5988V14.7167H49.7486V9.35965H63.9027Z" fill="black"/>
+                    <path d="M67.6803 27.6793H72.0253V5.39151H67.6803V27.6793Z" fill="black"/>
+                    <path d="M76.9704 27.6793H81.3481V9.35965H83.5536L89.38 27.6793H99.0573L99.0904 5.39151H94.7123L94.7454 23.7111H92.5398L86.7795 5.39151H77.0361L76.9704 27.6793Z" fill="black"/>
+                    <path d="M104.036 27.6793H120.692C121.318 27.6793 121.812 27.4809 122.272 27.0179L124.247 25.0339C124.708 24.5709 124.906 24.0749 124.906 23.4466V18.5526C124.906 17.9573 124.774 17.3621 124.214 17.0645L122.404 16.1717V15.841L124.214 15.0143C124.774 14.7497 124.906 14.0884 124.906 13.5262V9.62421C124.906 8.99591 124.708 8.4999 124.247 8.03693L122.272 6.05286C121.812 5.58992 121.318 5.39151 120.692 5.39151H104.036V27.6793ZM108.381 14.1214V9.35965H120.561V14.1214H108.381ZM108.381 23.7111V18.0896H120.561V23.7111H108.381Z" fill="#4A65EA"/>
+                    <path d="M133.737 27.6793H147.497C148.122 27.6793 148.616 27.4809 149.076 27.0179L151.051 25.0339C151.512 24.5709 151.71 24.0749 151.71 23.4466V9.62421C151.71 8.99591 151.512 8.4999 151.051 8.03693L149.076 6.05286C148.616 5.58992 148.122 5.39151 147.497 5.39151H133.737C133.112 5.39151 132.618 5.58992 132.157 6.05286L130.182 8.03693C129.721 8.4999 129.524 9.02898 129.524 9.62421V23.4466C129.524 24.0749 129.721 24.5709 130.182 25.0339L132.157 27.0179C132.618 27.4809 133.145 27.6793 133.737 27.6793ZM133.869 23.7111V9.35965H147.365V23.7111H133.869Z" fill="#4A65EA"/>
+                    <path d="M154.695 27.6793H159.435L163.945 18.3872H168.783L173.293 27.6793H178L172.174 16.0394L177.408 5.39151H172.668L168.487 14.419H164.208L160.028 5.39151H155.288L160.521 16.0394L154.695 27.6793Z" fill="#4A65EA"/>
+                    <path d="M0 9.2554V24.5313L3.30957 29.204L14.2222 33.9666L17.979 31.4505V15.0962L15.2956 10.5134L3.30957 5.39151L0 9.2554Z" fill="#3954DE"/>
+                    <path d="M37.6574 9.2554V24.5313L34.3479 29.204L23.4353 33.9666L19.6785 31.4505V15.0962L22.3619 10.5134L34.3479 5.39151L37.6574 9.2554Z" fill="#4A65EA"/>
+                    <path d="M18.6946 8.08723C24.8696 8.08723 29.8755 6.27685 29.8755 4.04362C29.8755 1.81039 24.8696 0 18.6946 0C12.5195 0 7.51358 1.81039 7.51358 4.04362C7.51358 6.27685 12.5195 8.08723 18.6946 8.08723Z" fill="#627AEF"/>
+                    </svg>                    
+            </div>
+            <form class="flex flex-col mt-16" ref='uploadForm' id='uploadForm' action='http://localhost:3000/upload' method='post'
+                accept-charset="UTF-8" encType="multipart/form-data">
+
+                <div class="select-f__wrapper w-80 min-w-full h-40 flex flex-col justify-center items-center rounded-xl bg-blue-100/75">
+                    <label class="input-file flex flex-row items-center justify-center w-64 h-12 bg-white border rounded-xl border-indigo-400 cursor-pointer text-base font-medium uppercase text-indigo-600" for="sampleFile">
+                        <input type="file" name="sampleFile" id="sampleFile"/>
+                        <span>Выберите файл</span>
+                    </label>
+                    <div class="name-f__wrapper flex flex-row w-64 pt-2">
+                        <div class="name-f__marker w-3 h-1 bg-indigo-600 rounded-sm mt-2 mr-2"></div>
+                        <div class="items-center justify-center text-sm text-slate-500" id="fileNameBlock">Загрузите файл шаблона для редактирования</div>
+                    </div>
+
+                </div>
+
+                <div class="upload__wrapper w-80 min-w-full h-40 mt-5 flex flex-col justify-center items-center rounded-xl bg-blue-100/75">
+                    <input class="flex flex-row items-center justify-center w-64 h-12 bg-white border rounded-xl border-indigo-400 cursor-pointer text-base font-medium uppercase text-indigo-600" type='submit' value='Загрузить' />
+                    <div class="name-f__wrapper flex flex-row w-64 pt-2">
+                        <div class="name-f__marker w-3 h-1 bg-indigo-600 rounded-sm mt-2 mr-2"></div>
+                        <div class="items-center justify-center text-sm text-slate-500" id="uploadHelpText">Нажмите на кнопку Загрузить, чтобы загрузить файл на сервер</div>
+                    </div>
+                </div>
+
+                <div class="save__wrapper w-80 min-w-full h-40 mt-5 flex flex-row justify-center items-center rounded-xl bg-blue-100/75">
+                    <button class="flex flex-row items-center justify-center w-64 h-12 bg-indigo-600 rounded-xl cursor-pointer text-base font-medium uppercase text-white" type="button" onclick="saveChanges()">Сохранить</button>
+                </div>
+
+
+            </form>
+        </div>
+
+
+        <div class="template__wrapper flex flex-row items-center justify-center max-w-4xl w-full h-full bg-gray-400 rounded-xl">
+            <!-- Блок для отображения iframe -->
+            <div class="w-full h-full" id="iframe__container"></div>
+
+        </div>
+    </div>
+
+</body>
+</html>
